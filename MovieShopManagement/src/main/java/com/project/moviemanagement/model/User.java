@@ -1,12 +1,13 @@
 package com.project.moviemanagement.model;
 
+import java.util.Arrays;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 @Getter
 @Setter
-@ToString
 public class User {
 
 	private String userId;
@@ -16,7 +17,7 @@ public class User {
 	/**
 	 * For Testing purpose, password attribute needs to be removed later and need to use spring security.
 	 */
-	private char[] userPwd;
+	private String userPwd;
 	
 	private UserRole userRole;
 	
@@ -26,13 +27,12 @@ public class User {
 	
 	private Movie[] rejectedVerificationMovies;
 
-	public User(String userId, String userName, char[] userPwd, UserRole userRole) {
+	public User(String userId, String userName, String userPwd, UserRole userRole) {
 		super();
 		this.userId = userId;
 		this.userName = userName;
 		this.userPwd = userPwd;
 		this.userRole = userRole;
 	}
-	
-	
+		
 }

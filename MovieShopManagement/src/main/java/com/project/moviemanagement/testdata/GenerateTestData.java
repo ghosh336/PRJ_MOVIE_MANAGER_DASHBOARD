@@ -14,19 +14,20 @@ import com.project.moviemanagement.model.UserRole;
 public class GenerateTestData {
 
 	private static List<User> users = null;
+	private static List<Movie> movies = null;
 	static {
 		users = new ArrayList<>();
 		
 		//====== Users Starts ======
-		User u1 = new User("bry001", "Bryan Adams", "myschool123".toCharArray(), UserRole.ADMIN);
-		User u2 = new User("crys336", "Chrystopher John", "apple@221".toCharArray(), UserRole.COMMON_VIEWER);
-		User u3 = new User("sys1912", "MS Dhoni", "msbhai@jul7".toCharArray(), UserRole.COMMON_VIEWER);
-		User u4 = new User("nkn112", "Neil James", "nljms!!asdf".toCharArray(), UserRole.COMMON_VIEWER);
+		User u1 = new User("bry001", "Bryan Adams", "myschool123", UserRole.ADMIN);
+		User u2 = new User("crys336", "Chrystopher John", "apple@221", UserRole.COMMON_VIEWER);
+		User u3 = new User("sys1912", "MS Dhoni", "msbhai@jul7", UserRole.COMMON_VIEWER);
+		User u4 = new User("nkn112", "Neil James", "nljms!!asdf", UserRole.COMMON_VIEWER);
 		users.addAll(List.of(u1, u2, u3, u4));
 		//====== Users Ends ========
 		
 		//====== Movie Starts ======
-		List<Movie> movies = new ArrayList<>();
+		movies = new ArrayList<>();
 		Movie m1 = new Movie("mov001", "Narnia", "Entertainment", 12.25, 7.2f, new Date(2000, 12, 18));
 		Movie m2 = new Movie("mov002", "BayMax", "Sience Fiction", 20.22, 9.5f, new Date(2014, 8, 25));
 		Movie m3 = new Movie("mov003", "Exorcist", "Thriller", 18.22, 8.1f, new Date(2009, 11, 5));
@@ -40,5 +41,9 @@ public class GenerateTestData {
 	
 	public static List<User> getAllUsers() {
 		return users;
+	}
+	
+	public static List<Movie> getAllMovies() {
+		return movies;
 	}
 }

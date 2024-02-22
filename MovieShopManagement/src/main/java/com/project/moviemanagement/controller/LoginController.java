@@ -49,8 +49,13 @@ public class LoginController {
 		}
 		
 		if (loggedinUser.getUserRole().equals(UserRole.ADMIN)) {
+			System.out.println("Admin View for Admin :"+loggedinUser.getUserName());
 			return "moviePageForAdmin";
 		} else if (loggedinUser.getUserRole().equals(UserRole.COMMON_VIEWER)) {
+			System.out.println("User View For User :" +loggedinUser.getUserName());
+			System.out.println("loginService.getAllMovies() : " + loginService.getAllMovies());
+			m.addAttribute("loggedinUserName", loggedinUser.getUserName());
+			m.addAttribute("allmovies", loginService.getAllMovies());
 			return "moviePageForCommonUser";
 		} else {
 			//Do Nothing, for now, In Future there may be other action or more roles

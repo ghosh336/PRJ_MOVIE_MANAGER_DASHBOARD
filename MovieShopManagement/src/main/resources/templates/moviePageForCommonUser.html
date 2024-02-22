@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>Movie Management Dashboard User View</title>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+ <script th:src="@{/js/MovieDashboardForUser.js}" ></script>
+</head>
+<body>
+<div class="jumbotron text-center success  alert alert-success">
+    <h1><span th:text="${pageTitle}"></span></h1>      
+</div> 
+<nav class="navbar " style="float:right;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <div class="navbar-brand" href="#">Welcome <span th:text="${loggedinUserName}"/></div>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#" onclick="loadHomeForUser()">Home</a></li>
+      <li><a href="#" onclick="loadPuchased()">Purchased</a></li>
+      <li><a href="#" onclick="loadPendingAndRejected()">Pending/Rejected</a></li>
+      <li><a href="#" onclick="loadMyProfile()">My Profile</a></li>
+    </ul>
+    <button class="btn btn-danger navbar-btn">Log Out</button>
+  </div>
+</nav>
+
+<div class="container-fluid" id="moviedetails">
+  <h2>Available Movies</h2>
+  <p>This is the list of available movies for shopping, Please select form here and apply.</p>            
+  <table class="table table-striped">
+    <thead>
+      <tr >
+        <th class="info ">Movie Name</th>
+        <th class="info ">Movie Genre</th>
+        <th class="info">price</th>
+        <th class="info">IMDB Rating</th>
+        <th class="info">Release Date</th>
+        <th class="alert-danger">Add To Cart</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="movie: ${allmovies}">
+        <td th:text="${movie.movieName}"></td>
+        <td th:text="${movie.movieGenere}"></td>
+        <td th:text="${movie.price}"></td>
+        <td th:text="${movie.imdbRating}"></td>
+        <td th:text="${movie.releaseDate}"></td>
+        <td><button type="button" class="btn btn-success" >Add to Buy</button></td>
+      </tr>
+    </tbody>
+  </table>
+ </div>
+ 
+ 
+ <div class="container-fluid" id="purchaseddetails" style="display:none;">
+  <h2>Purchased Movies</h2>
+  <p>This is the list of purchased movies.</p>            
+  <table class="table table-striped">
+    <thead>
+      <tr >
+        <th class="success ">Movie Name</th>
+        <th class="success ">Movie Genre</th>
+        <th class="success">price</th>
+        <th class="success">IMDB Rating</th>
+        <th class="success">Release Date</th>
+        <th class="success">Purchased Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+ </div>
+ 
+  <div class="container-fluid" id="pendingrejected" style="display:none;">
+  <h2>Pending/Rejected Movies</h2>
+  <p>This is the list of Pending or Rejected movies.</p>            
+  <table class="table table-striped">
+    <thead>
+      <tr >
+        <th class="danger ">Movie Name</th>
+        <th class="danger ">Movie Genre</th>
+        <th class="danger">price</th>
+        <th class="danger">IMDB Rating</th>
+        <th class="danger">Release Date</th>
+        <th class="danger">Application Date</th>
+        <th class="danger">Current Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+ </div>
+ 
+</body>
+</html>

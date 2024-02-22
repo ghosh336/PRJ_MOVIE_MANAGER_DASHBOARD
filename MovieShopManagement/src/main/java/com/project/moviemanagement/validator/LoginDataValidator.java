@@ -26,5 +26,11 @@ public class LoginDataValidator {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+	@Override
+	public String toString() {
+		return "LoginDataValidator [userId=" + userId + ", userPwd=" + userPwd + "]";
+	}
+	
 	
 }
