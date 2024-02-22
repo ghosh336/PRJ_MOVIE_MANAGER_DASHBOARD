@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>MovieManagementDashboard Login</title>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="jumbotron text-center success  alert alert-success">
+    <h1><span th:text="${pageTitle}"></span></h1>      
+</div> 
+
+<div class="container" th:object="${loginvalidator}">
+  <h2>Login Here</h2>
+  <form  action="login" method="post" >
+    <div class="form-group">
+      <label for="usr">UserName:</label>
+      <div class="input-group">
+	      <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+	      <input type="text" name="userId" class="form-control" id="usr " th:value="${loginvalidator.userId}">
+      </div>
+      
+     
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <div class="input-group">
+	      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+	      <input type="password"  name="userPwd" class="form-control" id="pwd" th:value="${loginvalidator.userPwd}">	      
+	  </div>
+    </div>
+    <button type="submit" class="btn btn-default">Login</button>
+  </form>
+  <br>
+  <div> 
+  	<div class="alert alert-danger" th:text="${loginError}" th:style="${loginError} ? 'display:block;':'display:none;'" />
+  		<div class="alert alert-warning" th:style="${#fields.hasErrors('userId') || #fields.hasErrors('userPwd')}  ? 'display:block;' : 'display:none;'"> 
+  			<span th:each="e : ${#fields.errors('userId')}"  th:text="${e}" /> 
+  			<span th:each="e : ${#fields.errors('userPwd')}" th:text="${e}" />
+  		</div>
+  </div>
+</div>
+
+</body>
+</html>

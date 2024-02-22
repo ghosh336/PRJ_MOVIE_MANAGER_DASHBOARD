@@ -1,0 +1,19 @@
+
+
+
+1. Login page 
+2. Login Details Basic Validation
+3. If UserLogggedin is Admin
+    He can See menus for 
+    1) List Of Movies along with Edit Buttons
+    2) Option to Add Movies
+    3) Option to Add Users
+    4) List of all Users along with edit button
+    5) Approve purchases or reject purchases
+    6) View list of movies purchased by each users
+    
+4) When User Logs In
+   1) He will see details of his in his profile
+   2) List of movies purchased
+   3) List of movies pending or rejected for purchase
+   4) List of available movies    
